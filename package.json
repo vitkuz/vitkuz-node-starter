@@ -1,0 +1,29 @@
+{
+  "name": "play_with_express4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "set DEBUG=app & nodemon ./src/server/server.js",
+    "dev:inspect": "set DEBUG=app & nodemon --inspect ./src/server/server.js",
+    "lint": "set DEBUG=app & eslint ./src/server/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^4.1.1",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "nodemon": "^1.18.10"
+  }
+}
