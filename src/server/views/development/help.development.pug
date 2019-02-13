@@ -1,0 +1,32 @@
+extends ../rootLayout
+
+block globalNav
+    include ../partials/globalNav
+
+block content
+    h1 Development page
+
+    div
+        h3 User add entities menu
+        hr
+        .content
+            each val in userCreateEntitiesMenu
+                a.p-2.text-muted(href=val.href)= val.text
+    div
+        h3 Single entity
+        hr
+        .content
+            each val in devSingleEntitiesMenu
+                a.p-2.text-muted(href=val.href)= val.text
+    div
+        h3 Dev edit entity
+        hr
+        .content
+            each val in devEditEntitiesMenu
+                a.p-2.text-muted(href=val.href)= val.text
+    div
+        h3 Categories
+        hr
+        .content
+            each val in categoriesMenu
+                a.p-2.text-muted(href=val.href)= val.text

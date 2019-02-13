@@ -1,0 +1,11 @@
+html
+    head
+        title
+    body
+        .container
+            h1(id="page-title") Login
+            p Login page
+            form(action='/user/login', method='POST', id='user-login-form')
+                input(id='user-name', name='username', type='text')
+                input(id='user-pass', name='userpass', type='password')
+                button Login

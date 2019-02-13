@@ -1,0 +1,6 @@
+module.exports = [
+  {
+    text: '',
+    href: '/',
+  },
+]

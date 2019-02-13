@@ -1,0 +1,116 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='')
+        meta(name='author', content='Mark Otto, Jacob Thornton, and Bootstrap contributors')
+        title Signin Template · Bootstrap
+        // Bootstrap core CSS
+        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css', integrity='sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA', crossorigin='anonymous')
+        style.
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                    font-size: 3.5rem;
+                }
+            }
+        // Custom styles for this template
+        link(href='/css/signin.css', rel='stylesheet')
+    body.text-center
+        .d-flex.flex-column.flex-md-row.align-items-center.p-3.px-md-4.mb-3.bg-white.border-bottom.shadow-sm
+            h5.my-0.mr-md-auto.font-weight-normal Company name
+            nav.my-2.my-md-0.mr-md-3
+                a.p-2.text-dark(href='#') Features
+                a.p-2.text-dark(href='#') Enterprise
+                a.p-2.text-dark(href='#') Support
+                a.p-2.text-dark(href='#') Pricing
+            a.btn.btn-outline-primary(href='#') Sign up
+
+        form.form-signin
+            img.mb-4(src='/docs/4.3/assets/brand/bootstrap-solid.svg', alt='', width='72', height='72')
+            h1.h3.mb-3.font-weight-normal Please sign in
+            label.sr-only(for='inputEmail') Email address
+            input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
+            label.sr-only(for='inputPassword') Password
+            input#inputPassword.form-control(type='password', placeholder='Password', required='')
+            .checkbox.mb-3
+                label
+                    input(type='checkbox', value='remember-me')
+                    |  Remember me
+            button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
+            p.mt-5.mb-3.text-muted © 2017-2019
+        footer.bd-footer.text-muted
+            .container-fluid.p-3.p-md-5
+                ul.bd-footer-links
+                    li
+                        a(href='https://github.com/twbs/bootstrap') GitHub
+                    li
+                        a(href='https://twitter.com/getbootstrap') Twitter
+                    li
+                        a(href='/docs/4.3/examples/') Examples
+                    li
+                        a(href='/docs/4.3/about/overview/') About
+                p
+                    | Designed and built with all the love in the world by the
+                    a(href='/docs/4.3/about/team/') Bootstrap team
+                    |  with the help of
+                    a(href='https://github.com/twbs/bootstrap/graphs/contributors') our contributors
+                    | .
+                p
+                    | Currently v4.3.0. Code licensed
+                    a(href='https://github.com/twbs/bootstrap/blob/master/LICENSE', target='_blank', rel='license noopener') MIT
+                    | , docs
+                    a(href='https://creativecommons.org/licenses/by/3.0/', target='_blank', rel='license noopener') CC BY 3.0
+                    | .
+
+
+        footer.pt-4.my-md-5.pt-md-5.border-top
+            .row
+                .col-12.col-md
+                    img.mb-2(src='/docs/4.3/assets/brand/bootstrap-solid.svg', alt='', width='24', height='24')
+                    small.d-block.mb-3.text-muted © 2017-2019
+                .col-6.col-md
+                    h5 Features
+                    ul.list-unstyled.text-small
+                        li
+                            a.text-muted(href='#') Cool stuff
+                        li
+                            a.text-muted(href='#') Random feature
+                        li
+                            a.text-muted(href='#') Team feature
+                        li
+                            a.text-muted(href='#') Stuff for developers
+                        li
+                            a.text-muted(href='#') Another one
+                        li
+                            a.text-muted(href='#') Last time
+                .col-6.col-md
+                    h5 Resources
+                    ul.list-unstyled.text-small
+                        li
+                            a.text-muted(href='#') Resource
+                        li
+                            a.text-muted(href='#') Resource name
+                        li
+                            a.text-muted(href='#') Another resource
+                        li
+                            a.text-muted(href='#') Final resource
+                .col-6.col-md
+                    h5 About
+                    ul.list-unstyled.text-small
+                        li
+                            a.text-muted(href='#') Team
+                        li
+                            a.text-muted(href='#') Locations
+                        li
+                            a.text-muted(href='#') Privacy
+                        li
+                            a.text-muted(href='#') Terms
