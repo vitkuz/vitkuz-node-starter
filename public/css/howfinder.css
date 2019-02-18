@@ -1,3 +1,29 @@
 body {
     font-family: Ubuntu, sans-serif;
 }
+
+.book-card {
+    background: #f3f3f3;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    box-shadow: 0 0 3px #000;
+    border-radius: 3px;
+}
+
+.article-header {
+    background-color: #ccc;
+}
+
+.book-card__title {
+    margin: 0;
+}
+
+.shelf {
+    text-align: left;
+    padding: 1rem;
+    width: 50%;
+    margin: auto;
+    border: 1px solid #ccc;
+    margin-bottom: 2rem;
+}

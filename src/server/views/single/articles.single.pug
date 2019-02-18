@@ -4,4 +4,82 @@ block globalNav
     include ../partials/globalNav
 
 block content
-    h1 Article single page
+    - books = content.books;
+    - channels = content.channels;
+    - courses = content.courses;
+    - files = content.files;
+    - ideas = content.ideas;
+    - infos = content.info;
+    - movies = content.movies;
+    - quotes = content.movies;
+
+    .div.article
+        .article_header.pt-3.pb-3
+            h1= title
+            h2= subtitle
+            p= description
+
+        .article_content
+            .shelf.books-shelf
+                h3.books-shelf__title 💡 Books
+                hr
+                .books-shelf__content
+                    each book in books
+                        .book-card(data-id=book._id, data-uuid=book.uuid)
+                            //img(src=book.cover)
+
+                            h4.book-card__title= book.title
+                            hr
+                            p.book-card__description= book.description
+                            hr
+                            .div
+                                | Likes: #{book.likes}
+                                | createdAt: #{book.createdAt}
+            .shelf.channels-shelf
+                h3.channels-shelf__title 💡 Channels
+                hr
+                .channels-shelf__content
+                    each channel in channels
+                        .channel-card(data-id=channel._id, data-uuid=channel.uuid)
+                            //img(src=book.cover)
+
+                            h4.channel-card__title= channel.title
+                            hr
+                            p.channel-card__description= channel.description
+                            hr
+                            .div
+                                | Likes: #{channel.likes}
+                                | createdAt: #{channel.createdAt}
+            .shelf.courses-shelf
+                h3.courses-shelf__title 💡 Courses
+                hr
+                .courses-shelf__content
+                    each channel in channels
+                        .course-card(data-id=channel._id, data-uuid=channel.uuid)
+                            //img(src=book.cover)
+
+                            h4.course-card__title= channel.title
+                            hr
+                            p.course-card__description= channel.description
+                            hr
+                            .div
+                                | Likes: #{channel.likes}
+                                | createdAt: #{channel.createdAt}
+            .shelf.files-shelf
+                h3.shelf__title.files-shelf__title 💡 Files
+                hr
+                .shelf__content.files-shelf__content
+                    each file in files
+                        .file-card(data-id=file._id, data-uuid=file.uuid)
+                            //img(src=book.cover)
+
+                            h4.file-card__title= file.title
+                            hr
+                            p.file-card__description= file.description
+                            hr
+                            .div
+                                | Likes: #{file.likes}
+                                | createdAt: #{file.createdAt}
+
+
+

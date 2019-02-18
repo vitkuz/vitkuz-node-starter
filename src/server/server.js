@@ -11,6 +11,7 @@ const bodyParser = require('body-parser');
 // const expressValidator = require('express-validator');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
 const monitor = require('express-status-monitor');
 
 // middlewares
@@ -107,30 +108,19 @@ const removeServiceRoute = require('./routes/service/remove.service.route');
 const setupPassport = require('./config/passport');
 const setupRoutes = require('./config/routes');
 
-const pageModel = {
-  page: {
-    title: '',
-    h1Title: '',
-    description: '',
-    url: '',
-    redirect: '',
-    type: '',
-    template: '',
-  },
-};
-
 dotenv.config();
 
 const app = express();
 
-app.enable('trust proxy');
+app.enable('trust proxy', 1);
 
 if (process.env.NODE_ENV === 'development') {
   app.use(monitor());
 }
 
+app.use(helmet()); // protect express app
+
 if (process.env.NODE_ENV === 'production') {
-  app.use(helmet()); // protect express app
   app.use(compression({ level: 9 })); // compress responses
 }
 
@@ -140,10 +130,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
   secret: process.env.SESSION_SECRET,
-  httpOnly: true,
   resave: false,
   saveUninitialized: false,
-  cookie: { maxAge: 60000 },
+  name: 'id',
+  store: () => {
+    return new RedisStore({
+      host: 'localhost',
+      port: 6379,
+    });
+  },
+  cookie: {
+    path: '/',
+    httpOnly: true,
+    secure: true,
+    maxAge: 60 * 60 * 24,
+  },
 }));
 
 setupPassport(app);
