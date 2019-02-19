@@ -207,7 +207,7 @@ app.use('/articles/:articleId/books', articleBooksSingleRoute());
 app.use('/articles/:articleId/channels', articleChannelsSingleRoute());
 app.use('/articles/:articleId/courses', articleCoursesSingleRoute());
 app.use('/articles/:articleId/files', articleFilesSingleRoute());
-app.use('/articles/:articleId/infograpics', articleInfographicsSingleRoute());
+app.use('/articles/:articleId/infographics', articleInfographicsSingleRoute());
 app.use('/articles/:articleId/movies', articleMoviesSingleRoute());
 app.use('/articles/:articleId/quotes', articleQuotesSingleRoute());
 app.use('/articles/:articleId/stories', articleStoriesSingleRoute());
