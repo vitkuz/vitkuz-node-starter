@@ -1,12 +1,13 @@
 mixin printMoviesShelf(movies)
-    .shelf.movies-shelf
-        h3.shelf__title.movies-shelf__title 💡 movies
-        hr
-        .shelf__content.infographics-shelf__content
-            each movie in movies
-                .movie-card(data-id=movie._id, data-uuid=movie.uuid)
-                    //img(src=book.cover)
+    if movies && movies.length > 0
+        .shelf.movies-shelf
+            h3.shelf__title.movies-shelf__title 💡 movies
+            hr
+            .shelf__content.infographics-shelf__content
+                each movie in movies
+                    .movie-card(data-id=movie._id, data-uuid=movie.uuid)
+                        //img(src=book.cover)
 
-                    h4.movie-card__title= movie.title
-                    hr
-                    p.movie-card__description= movie.description
+                        h4.movie-card__title= movie.title
+                        hr
+                        p.movie-card__description= movie.description

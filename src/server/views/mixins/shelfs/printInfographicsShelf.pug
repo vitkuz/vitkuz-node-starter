@@ -1,12 +1,13 @@
 mixin printInfographicsShelf(infographics)
-    .shelf.infographics-shelf
-        h3.shelf__title.infographics-shelf__title 💡 Infographic
-        hr
-        .shelf__content.infographics-shelf__content
-            each infographic in infographics
-                .infographic-card(data-id=infographic._id, data-uuid=infographic.uuid)
-                    //img(src=book.cover)
+    if infographics && infographics.length > 0
+        .shelf.infographics-shelf
+            h3.shelf__title.infographics-shelf__title 💡 Infographic
+            hr
+            .shelf__content.infographics-shelf__content
+                each infographic in infographics
+                    .infographic-card(data-id=infographic._id, data-uuid=infographic.uuid)
+                        //img(src=book.cover)
 
-                    h4.infographic-card__title= infographic.title
-                    hr
-                    p.infographic-card__description= infographic.description
+                        h4.infographic-card__title= infographic.title
+                        hr
+                        p.infographic-card__description= infographic.description

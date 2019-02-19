@@ -1,16 +1,17 @@
-mixin printChannelsShelf()
-    .shelf.channels-shelf
-        h3.channels-shelf__title 💡 Channels
-        hr
-        .channels-shelf__content
-            each channel in channels
-                .channel-card(data-id=channel._id, data-uuid=channel.uuid)
-                    //img(src=book.cover)
+mixin printChannelsShelf(channels)
+    if channels && channels.length > 0
+        .shelf.channels-shelf
+            h3.channels-shelf__title 💡 Channels
+            hr
+            .channels-shelf__content
+                each channel in channels
+                    .channel-card(data-id=channel._id, data-uuid=channel.uuid)
+                        //img(src=book.cover)
 
-                    h4.channel-card__title= channel.title
-                    hr
-                    p.channel-card__description= channel.description
-                    hr
-                    .div
-                        | Likes: #{channel.likes}
-                        | createdAt: #{channel.createdAt}
+                        h4.channel-card__title= channel.title
+                        hr
+                        p.channel-card__description= channel.description
+                        hr
+                        .div
+                            | Likes: #{channel.likes}
+                            | createdAt: #{channel.createdAt}

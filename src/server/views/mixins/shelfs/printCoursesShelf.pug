@@ -1,16 +1,17 @@
 mixin printCoursesShelf(courses)
-    .shelf.courses-shelf
-        h3.courses-shelf__title 💡 Courses
-        hr
-        .courses-shelf__content
-            each course in courses
-                .course-card(data-id=course._id, data-uuid=course.uuid)
-                    //img(src=book.cover)
+    if courses && courses.length > 0
+        .shelf.courses-shelf
+            h3.courses-shelf__title 💡 Courses
+            hr
+            .courses-shelf__content
+                each course in courses
+                    .course-card(data-id=course._id, data-uuid=course.uuid)
+                        //img(src=book.cover)
 
-                    h4.course-card__title= course.title
-                    hr
-                    p.course-card__description= course.description
-                    hr
-                    .div
-                        | Likes: #{course.likes}
-                        | createdAt: #{course.createdAt}
+                        h4.course-card__title= course.title
+                        hr
+                        p.course-card__description= course.description
+                        hr
+                        .div
+                            | Likes: #{course.likes}
+                            | createdAt: #{course.createdAt}

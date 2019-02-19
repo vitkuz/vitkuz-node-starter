@@ -1,12 +1,13 @@
 mixin printProductsShelf(products)
-    .shelf.products-shelf
-        h3.shelf__title.products-shelf__title 💡 products
-        hr
-        .shelf__content.products-shelf__content
-            each product in products
-                .movie-card(data-id=product._id, data-uuid=product.uuid)
-                    //img(src=book.cover)
+    if products && products.length > 0
+        .shelf.products-shelf
+            h3.shelf__title.products-shelf__title 💡 products
+            hr
+            .shelf__content.products-shelf__content
+                each product in products
+                    .movie-card(data-id=product._id, data-uuid=product.uuid)
+                        //img(src=book.cover)
 
-                    h4.movie-card__title= product.title
-                    hr
-                    p.movie-card__description= product.description
+                        h4.movie-card__title= product.title
+                        hr
+                        p.movie-card__description= product.description
