@@ -189,6 +189,33 @@ app.use('/user/profile', isUser(), userProfileRoute());
 
 app.use('/articles', articlesPageRoute());
 app.use('/articles/:articleId', articleSingleRoute());
+
+const articleBooksSingleRoute = require('./routes/single/article/books.article.single.route');
+const articleChannelsSingleRoute = require('./routes/single/article/channels.article.single.route');
+const articleCoursesSingleRoute = require('./routes/single/article/courses.article.single.route');
+const articleFilesSingleRoute = require('./routes/single/article/files.article.single.route');
+const articleInfographicsSingleRoute = require('./routes/single/article/infographics.article.single.route');
+const articleMoviesSingleRoute = require('./routes/single/article/movies.article.single.route');
+const articleQuotesSingleRoute = require('./routes/single/article/quotes.article.single.route');
+const articleStoriesSingleRoute = require('./routes/single/article/storys.article.single.route');
+const articleToolsSingleRoute = require('./routes/single/article/tools.article.single.route');
+const articleVideosSingleRoute = require('./routes/single/article/videos.article.single.route');
+const articleEventsSingleRoute = require('./routes/single/article/events.article.single.route');
+const articleProductsSingleRoute = require('./routes/single/article/products.article.single.route');
+
+app.use('/articles/:articleId/books', articleBooksSingleRoute());
+app.use('/articles/:articleId/channels', articleChannelsSingleRoute());
+app.use('/articles/:articleId/courses', articleCoursesSingleRoute());
+app.use('/articles/:articleId/files', articleFilesSingleRoute());
+app.use('/articles/:articleId/infograpics', articleInfographicsSingleRoute());
+app.use('/articles/:articleId/movies', articleMoviesSingleRoute());
+app.use('/articles/:articleId/quotes', articleQuotesSingleRoute());
+app.use('/articles/:articleId/stories', articleStoriesSingleRoute());
+app.use('/articles/:articleId/tools', articleToolsSingleRoute());
+app.use('/articles/:articleId/videos', articleVideosSingleRoute());
+app.use('/articles/:articleId/events', articleEventsSingleRoute());
+app.use('/articles/:articleId/products', articleProductsSingleRoute());
+
 app.use('/user/add/article', articleAddRoute());
 app.use('/user/edit/article/:articleId', articleEditRoute());
 

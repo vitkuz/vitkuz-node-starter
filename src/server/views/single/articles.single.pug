@@ -33,10 +33,12 @@ block content
 
     .div.article
         .article_header.pt-3.pb-3
+            p= createdAt
             h1= title
             h2= subtitle
             p= description
-
+            each menuItem in menu
+                a(href='#'+menuItem)= menuItem
         .article_content
             +printBooksShelf(books)
             +printChannelsShelf(channels)

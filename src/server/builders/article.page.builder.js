@@ -23,10 +23,15 @@ function createPageModel() {
 
     Promise.all(contentPromises).then((entities) => {
       const content = {};
+      const menu = [];
 
       for (const collection of entities) {
         Object.assign(content, collection);
-      }
+        const [key] = Object.keys(collection);
+        if (collection[key] && collection[key].length > 0) {
+          menu.push(key);
+        }
+      };
 
       const pageModel = {
         _id: '321',
@@ -41,6 +46,7 @@ function createPageModel() {
         createdAt: 'date1',
         updatedAt: 'date2',
         ownedBy: 'user id ref',
+        menu,
         content,
       };
 
