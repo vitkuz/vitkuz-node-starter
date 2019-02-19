@@ -1,0 +1,10 @@
+mixin printToolsShelf(tools)
+    .shelf.tools-shelf
+        h3.shelf__title.tools-shelf__title 💡 tools
+        hr
+        .shelf__content.tools-shelf__content
+            each tool in tools
+                .tool-card(data-id=tool._id, data-uuid=tool.uuid)
+                    h4.tool-card__title= tool.title
+                    hr
+                    p.tool-card__description= tool.description

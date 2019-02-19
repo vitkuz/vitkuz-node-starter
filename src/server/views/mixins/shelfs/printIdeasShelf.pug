@@ -1,0 +1,12 @@
+mixin printIdeasShelf(ideas)
+    .shelf.ideas-shelf
+        h3.shelf__title.ideas-shelf__title 💡 Ideas
+        hr
+        .shelf__content.ideas-shelf__content
+            each idea in ideas
+                .idea-card(data-id=idea._id, data-uuid=idea.uuid)
+                    //img(src=book.cover)
+
+                    h4.idea-card__title= idea.title
+                    hr
+                    p.idea-card__description= idea.description

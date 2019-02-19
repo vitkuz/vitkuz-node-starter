@@ -1,0 +1,10 @@
+mixin printVideosShelf(videos)
+    .shelf.videos-shelf
+        h3.shelf__title.videos-shelf__title 💡 videos
+        hr
+        .shelf__content.videos-shelf__content
+            each video in videos
+                .tool-card(data-id=video._id, data-uuid=video.uuid)
+                    h4.tool-card__title= video.title
+                    hr
+                    p.tool-card__description= video.description

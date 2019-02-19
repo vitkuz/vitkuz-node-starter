@@ -1,0 +1,13 @@
+mixin printBooksShelf()
+    .shelf.books-shelf
+        h3.books-shelf__title 💡 Books
+        hr
+        .books-shelf__content
+            each book in books
+                .book-card(data-id=book._id, data-uuid=book.uuid)
+                    //img(src=book.cover)
+
+                    h4.book-card__title= book.title
+                    hr
+                    p.book-card__description= book.description
+                    hr

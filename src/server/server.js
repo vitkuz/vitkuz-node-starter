@@ -133,12 +133,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   name: 'id',
-  store: () => {
-    return new RedisStore({
-      host: 'localhost',
-      port: 6379,
-    });
-  },
+  store: new RedisStore(),
   cookie: {
     path: '/',
     httpOnly: true,

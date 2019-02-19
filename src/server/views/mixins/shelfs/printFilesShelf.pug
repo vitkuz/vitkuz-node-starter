@@ -1,0 +1,12 @@
+mixin printFilesShelf(files)
+    .shelf.files-shelf
+        h3.shelf__title.files-shelf__title 💡 Files
+        hr
+        .shelf__content.files-shelf__content
+            each file in files
+                .file-card(data-id=file._id, data-uuid=file.uuid)
+                    //img(src=book.cover)
+
+                    h4.file-card__title= file.title
+                    hr
+                    p.file-card__description= file.description

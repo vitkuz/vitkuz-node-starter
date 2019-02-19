@@ -1,0 +1,12 @@
+mixin printQuotesShelf(quotes)
+    .shelf.quotes-shelf
+        h3.shelf__title.quotes-shelf__title 💡 quotes
+        hr
+        .shelf__content.quotes-shelf__content
+            each quote in quotes
+                .quote-card(data-id=quote._id, data-uuid=quote.uuid)
+                    //img(src=book.cover)
+
+                    h4.quote-card__title= quote.title
+                    hr
+                    p.quote-card__description= quote.description

@@ -47,8 +47,6 @@ function Book() {
 // console.log(faker.lorem.paragraphs());
 // console.log(faker.lorem.text());
 
-console.log(new Book());
-
 function Channel() {
   return {
     _id: faker.random.uuid(),
@@ -64,72 +62,149 @@ function Channel() {
 
 function Course() {
   return {
-    title: 'Sample Course title',
+    _id: faker.random.uuid(),
+    uuid: faker.random.uuid(),
+
+    title: faker.lorem.words(),
+    title_en: faker.lorem.words(),
+
+    description: faker.lorem.paragraph(),
+    description_en: faker.lorem.paragraph(),
   };
 }
 
 function Event() {
   return {
-    title: 'Sample Event title',
+    _id: faker.random.uuid(),
+    uuid: faker.random.uuid(),
+
+    title: faker.lorem.words(),
+    title_en: faker.lorem.words(),
+
+    description: faker.lorem.paragraph(),
+    description_en: faker.lorem.paragraph(),
   };
 }
 
 function File() {
   return {
-    title: 'Sample File title',
+    _id: faker.random.uuid(),
+    uuid: faker.random.uuid(),
+
+    title: faker.lorem.words(),
+    title_en: faker.lorem.words(),
+
+    description: faker.lorem.paragraph(),
+    description_en: faker.lorem.paragraph(),
   };
 }
 
 function Idea() {
   return {
-    title: 'Sample Idea title',
+    _id: faker.random.uuid(),
+    uuid: faker.random.uuid(),
+
+    title: faker.lorem.words(),
+    title_en: faker.lorem.words(),
+
+    description: faker.lorem.paragraph(),
+    description_en: faker.lorem.paragraph(),
   };
 }
 
 function Infographic() {
   return {
-    title: 'Sample Infographic title',
+    _id: faker.random.uuid(),
+    uuid: faker.random.uuid(),
+
+    title: faker.lorem.words(),
+    title_en: faker.lorem.words(),
+
+    description: faker.lorem.paragraph(),
+    description_en: faker.lorem.paragraph(),
   };
 }
 
 function Movie() {
   return {
-    title: 'Sample Movie title',
+    _id: faker.random.uuid(),
+    uuid: faker.random.uuid(),
+
+    title: faker.lorem.words(),
+    title_en: faker.lorem.words(),
+
+    description: faker.lorem.paragraph(),
+    description_en: faker.lorem.paragraph(),
   };
 }
 
 function Product() {
   return {
-    title: 'Sample Product title',
+    _id: faker.random.uuid(),
+    uuid: faker.random.uuid(),
+
+    title: faker.lorem.words(),
+    title_en: faker.lorem.words(),
+
+    description: faker.lorem.paragraph(),
+    description_en: faker.lorem.paragraph(),
   };
 }
 
 function Quote() {
   return {
-    title: 'Sample Quote title',
+    _id: faker.random.uuid(),
+    uuid: faker.random.uuid(),
+
+    title: faker.lorem.words(),
+    title_en: faker.lorem.words(),
+
+    description: faker.lorem.paragraph(),
+    description_en: faker.lorem.paragraph(),
   };
 }
 
 function Story() {
   return {
-    title: 'Sample Story title',
+    _id: faker.random.uuid(),
+    uuid: faker.random.uuid(),
+
+    title: faker.lorem.words(),
+    title_en: faker.lorem.words(),
+
+    description: faker.lorem.paragraph(),
+    description_en: faker.lorem.paragraph(),
   };
 }
 
 function Tool() {
   return {
-    title: 'Sample Tool title',
+    _id: faker.random.uuid(),
+    uuid: faker.random.uuid(),
+
+    title: faker.lorem.words(),
+    title_en: faker.lorem.words(),
+
+    description: faker.lorem.paragraph(),
+    description_en: faker.lorem.paragraph(),
   };
 }
 
 function Video() {
   return {
-    title: 'Sample Video title',
+    _id: faker.random.uuid(),
+    uuid: faker.random.uuid(),
+
+    title: faker.lorem.words(),
+    title_en: faker.lorem.words(),
+
+    description: faker.lorem.paragraph(),
+    description_en: faker.lorem.paragraph(),
   };
 }
 
 function entitiesFactory(type) {
-  switch(type) {
+  switch (type) {
     case 'books':
       return Book;
     case 'channels':
@@ -163,7 +238,6 @@ function entitiesFactory(type) {
 }
 
 const generate = (type, number = 10) => {
-
   const Entity = entitiesFactory(type);
   const entities = [];
 
@@ -250,7 +324,7 @@ function createPageModel() {
     Promise.all(contentPromises).then((entities) => {
       const content = {};
 
-      for(const collection of entities) {
+      for (const collection of entities) {
         Object.assign(content, collection);
       }
 
