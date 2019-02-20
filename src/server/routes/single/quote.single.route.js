@@ -2,14 +2,17 @@ const express = require('express');
 const debug = require('debug')('app:quotes.single.route');
 
 const router = express.Router();
-const pageModel = {
-  title: 'Books page',
-};
+const builder = require('../../builders/quote.page.builder');
 
 function createRouter() {
-  return router.get('/', (req, res) => {
-    debug(req);
-    res.render('single/quotes.single.pug', pageModel);
+  return router.get('/', async (req, res) => {
+    try {
+      const pageModel = await builder();
+      // debug(pageModel);
+      res.render('single/quotes.single.pug', pageModel);
+    } catch (e) {
+      debug(e);
+    }
   });
 }
 

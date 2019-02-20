@@ -63,6 +63,19 @@ function Course() {
   };
 }
 
+function Summary() {
+  return {
+    _id: faker.random.uuid(),
+    uuid: faker.random.uuid(),
+
+    title: faker.lorem.words(),
+    title_en: faker.lorem.words(),
+
+    description: faker.lorem.paragraph(),
+    description_en: faker.lorem.paragraph(),
+  };
+}
+
 function Event() {
   return {
     _id: faker.random.uuid(),
@@ -221,6 +234,8 @@ function entitiesFactory(type) {
       return Tool;
     case 'videos':
       return Video;
+    case 'summaries':
+      return Summary;
     default:
       console.log(type);
       throw Error('There is no such entity yet', type);

@@ -2,13 +2,16 @@ const express = require('express');
 const debug = require('debug')('app:courses.single.route');
 
 const router = express.Router();
-const pageModel = {
-  title: 'Books page',
-};
+const builder = require('../../builders/course.page.builder');
 
 function createRouter() {
-  return router.get('/', (req, res) => {
-    res.render('single/courses.single.pug', pageModel);
+  return router.get('/', async (req, res) => {
+    try {
+      const pageModel = await builder();
+      res.render('single/courses.single.pug', pageModel);
+    } catch (e) {
+      debug(e);
+    }
   });
 }
 

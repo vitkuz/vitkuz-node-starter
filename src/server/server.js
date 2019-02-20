@@ -130,15 +130,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
   secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   name: 'id',
-  store: new RedisStore(),
+  // store: new RedisStore(),
   cookie: {
     path: '/',
     httpOnly: true,
-    secure: true,
-    maxAge: 60 * 60 * 24,
+    secure: false, // true downt work no https
+    // maxAge: 60 * 60 * 24,
   },
 }));
 
@@ -160,8 +159,8 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-  console.log('Second middleware running');
-  console.log(req.user);
+  debug('Second middleware running');
+  debug(req.user);
 
   const options = {
     httpOnly: true,

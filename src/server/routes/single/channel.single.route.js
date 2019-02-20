@@ -2,13 +2,16 @@ const express = require('express');
 const debug = require('debug')('app:channels.single.route');
 
 const router = express.Router();
-const pageModel = {
-  title: 'Books page',
-};
+const builder = require('../../builders/channel.page.builder');
+
 function createRouter() {
-  return router.get('/', (req, res) => {
-    debug(req);
-    res.render('single/channels.single.pug', pageModel);
+  return router.get('/', async (req, res) => {
+    try {
+      const pageModel = await builder();
+      res.render('single/channels.single.pug', pageModel);
+    } catch (e) {
+      debug(e);
+    }
   });
 }
 

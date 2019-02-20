@@ -2,14 +2,17 @@ const express = require('express');
 const debug = require('debug')('app:infographics.single.route');
 
 const router = express.Router();
-const pageModel = {
-  title: 'infographics page',
-};
+const builder = require('../../builders/infographic.page.builder');
 
 function createRouter() {
-  return router.get('/', (req, res) => {
-    debug(req);
-    res.render('single/infographics.single.pug', pageModel);
+  return router.get('/', async (req, res) => {
+    try {
+      const pageModel = await builder();
+      // debug(pageModel);
+      res.render('single/infographics.single.pug', pageModel);
+    } catch (e) {
+      debug(e);
+    }
   });
 }
 
