@@ -1,0 +1,37 @@
+extends ../../../views/rootLayout
+
+include ../../../views/mixins/shelfs/printBooksShelf
+include ../../../views/mixins/shelfs/printChannelsShelf
+include ../../../views/mixins/shelfs/printCoursesShelf
+include ../../../views/mixins/shelfs/printFilesShelf
+include ../../../views/mixins/shelfs/printIdeasShelf
+include ../../../views/mixins/shelfs/printInfographicsShelf
+include ../../../views/mixins/shelfs/printMoviesShelf
+include ../../../views/mixins/shelfs/printProductsShelf
+include ../../../views/mixins/shelfs/printQuotesShelf
+include ../../../views/mixins/shelfs/printStoriesShelf
+include ../../../views/mixins/shelfs/printStoriesShelf
+include ../../../views/mixins/shelfs/printToolsShelf
+include ../../../views/mixins/shelfs/printVideosShelf
+
+block globalNav
+    include ../../../views/partials/globalNav
+
+block content
+    - books = content.book;
+
+    .div.article
+        .article_header.pt-3.pb-3
+            p= createdAt
+            h1= title
+            h2= subtitle
+            p= description
+            // each menuItem in menu
+            //     a(href='#'+menuItem)= menuItem
+        .article_content
+            +printBooksShelf(books)
+
+
+
+
+

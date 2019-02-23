@@ -1,0 +1,14 @@
+mixin printEventsShelf(events)
+    if events && events.length > 0
+        .shelf.events-shelf
+            h3.events-shelf__title 💡 Events
+            hr
+            .events-shelf__content
+                each event in events
+                    .event-card(data-id=event._id, data-uuid=event.uuid)
+                        //img(src=event.cover)
+
+                        h4.event-card__title= event.title
+                        hr
+                        p.event-card__description= event.description
+                        hr

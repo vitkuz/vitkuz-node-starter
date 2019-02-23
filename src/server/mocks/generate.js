@@ -206,8 +206,24 @@ function Video() {
   };
 }
 
+function Article() {
+  return {
+    _id: faker.random.uuid(),
+    uuid: faker.random.uuid(),
+
+    title: faker.lorem.words(),
+    title_en: faker.lorem.words(),
+
+    description: faker.lorem.paragraph(),
+    description_en: faker.lorem.paragraph(),
+  };
+}
+
+
 function entitiesFactory(type) {
   switch (type) {
+    case 'articles':
+      return Article;
     case 'books':
       return Book;
     case 'channels':

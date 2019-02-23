@@ -1,0 +1,13 @@
+mixin printSummariesShelf (summaries)
+    if summaries && summaries.length > 0
+        .shelf.summaries-shelf
+            h3.shelf__title.summaries-shelf__title 💡 summaries
+            hr
+            .shelf__content.summaries-shelf__content
+                each summary in summaries
+                    .summary-card(data-id=summary._id, data-uuid=summary.uuid)
+                        //img(src=book.cover)
+
+                        h4.summary-card__title= summary.title
+                        hr
+                        p.summary-card__description= summary.description

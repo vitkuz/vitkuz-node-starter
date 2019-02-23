@@ -1,0 +1,25 @@
+extends ../../../views/rootLayout
+
+include ../../../views/mixins/shelfs/printToolsShelf
+
+block globalNav
+    include ../../../views/partials/globalNav
+
+block content
+    - tools = content.tools;
+
+    .div.article
+        .article_header.pt-3.pb-3
+            p= createdAt
+            h1= title
+            h2= subtitle
+            p= description
+            each menuItem in menu
+                a(href='#'+menuItem)= menuItem
+        .article_content
+            +printToolsShelf(tools)
+
+
+
+
+

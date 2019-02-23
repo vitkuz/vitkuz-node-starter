@@ -64,4 +64,9 @@ module.exports = [
     href: '/products/1',
     enable: true,
   },
-]
+  {
+    text: 'Summaries',
+    href: '/summaries/1',
+    enable: true,
+  },
+];

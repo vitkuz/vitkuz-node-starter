@@ -22,7 +22,7 @@ const getContent = {
   channel: () => {
     return new Promise((resolve, reject) => {
       if (process.env.USE_MOCKS) {
-        resolve({ book: generate('channels', 1) });
+        resolve({ channel: generate('channels', 1) });
       } else {
 
       }
@@ -40,7 +40,7 @@ const getContent = {
   course: () => {
     return new Promise((resolve, reject) => {
       if (process.env.USE_MOCKS) {
-        resolve({ courses: generate('courses', 1) });
+        resolve({ course: generate('courses', 1) });
       } else  {
 
       }
@@ -58,7 +58,7 @@ const getContent = {
   event: () => {
     return new Promise((resolve, reject) => {
       if (process.env.USE_MOCKS) {
-        resolve({ events: generate('events', 1) });
+        resolve({ event: generate('events', 1) });
       } else  {
 
       }
@@ -76,7 +76,7 @@ const getContent = {
   file: () => {
     return new Promise((resolve, reject) => {
       if (process.env.USE_MOCKS) {
-        resolve({ files: generate('files', 1) });
+        resolve({ file: generate('files', 1) });
       } else {
 
       }
@@ -94,7 +94,7 @@ const getContent = {
   idea: () => {
     return new Promise((resolve, reject) => {
       if (process.env.USE_MOCKS) {
-        resolve({ ideas: generate('ideas', 1) });
+        resolve({ idea: generate('ideas', 1) });
       } else {
 
       }
@@ -112,7 +112,7 @@ const getContent = {
   infographic: () => {
     return new Promise((resolve, reject) => {
       if (process.env.USE_MOCKS) {
-        resolve({ infographics: generate('infographics', 1) });
+        resolve({ infographic: generate('infographics', 1) });
       } else {
 
       }
@@ -130,7 +130,7 @@ const getContent = {
   movie: () => {
     return new Promise((resolve, reject) => {
       if (process.env.USE_MOCKS) {
-        resolve({ movies: generate('movies', 1) });
+        resolve({ movie: generate('movies', 1) });
       } else {
 
       }
@@ -148,7 +148,7 @@ const getContent = {
   product: () => {
     return new Promise((resolve, reject) => {
       if (process.env.USE_MOCKS) {
-        resolve({ products: generate('products', 1) });
+        resolve({ product: generate('products', 1) });
       } else {
 
       }
@@ -166,7 +166,7 @@ const getContent = {
   quote: () => {
     return new Promise((resolve, reject) => {
       if (process.env.USE_MOCKS) {
-        resolve({ quotes: generate('quotes', 1) });
+        resolve({ quote: generate('quotes', 1) });
       } else {
 
       }
@@ -184,7 +184,7 @@ const getContent = {
   story: () => {
     return new Promise((resolve, reject) => {
       if (process.env.USE_MOCKS) {
-        resolve({ stories: generate('stories', 1) });
+        resolve({ story: generate('stories', 1) });
       } else {
 
       }
@@ -202,7 +202,7 @@ const getContent = {
   tool: () => {
     return new Promise((resolve, reject) => {
       if (process.env.USE_MOCKS) {
-        resolve({ tools: generate('tools', 1) });
+        resolve({ tool: generate('tools', 1) });
       } else {
 
       }
@@ -220,7 +220,7 @@ const getContent = {
   video: () => {
     return new Promise((resolve, reject) => {
       if (process.env.USE_MOCKS) {
-        resolve({ videos: generate('videos', 1) });
+        resolve({ video: generate('videos', 1) });
       } else {
 
       }
@@ -238,7 +238,7 @@ const getContent = {
   summary: () => {
     return new Promise((resolve, reject) => {
       if (process.env.USE_MOCKS) {
-        resolve({ videos: generate('summaries', 1) });
+        resolve({ summary: generate('summaries', 1) });
       } else {
 
       }
@@ -247,7 +247,25 @@ const getContent = {
   summaries: () => {
     return new Promise((resolve, reject) => {
       if (process.env.USE_MOCKS) {
-        resolve({ videos: generate('summaries') });
+        resolve({ summaries: generate('summaries') });
+      } else {
+
+      }
+    });
+  },
+  article: () => {
+    return new Promise((resolve, reject) => {
+      if (process.env.USE_MOCKS) {
+        resolve({ article: generate('articles', 1) });
+      } else {
+
+      }
+    });
+  },
+  articles: () => {
+    return new Promise((resolve, reject) => {
+      if (process.env.USE_MOCKS) {
+        resolve({ articles: generate('articles') });
       } else {
 
       }

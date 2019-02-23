@@ -1,0 +1,25 @@
+extends ../../../views/rootLayout
+
+include ../../../views/mixins/shelfs/printIdeasShelf
+
+block globalNav
+    include ../../../views/partials/globalNav
+
+block content
+    - ideas = content.ideas;
+
+    .div.article
+        .article_header.pt-3.pb-3
+            p= createdAt
+            h1= title
+            h2= subtitle
+            p= description
+            each menuItem in menu
+                a(href='#'+menuItem)= menuItem
+        .article_content
+            +printIdeasShelf(ideas)
+
+
+
+
+

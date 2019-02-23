@@ -64,4 +64,14 @@ module.exports = [
     href: '/products',
     enable: true,
   },
-]
+  {
+    text: 'Summaries',
+    href: '/summaries',
+    enable: true,
+  },
+  {
+    text: 'Articles',
+    href: '/articles',
+    enable: true,
+  },
+];

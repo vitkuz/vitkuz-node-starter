@@ -1,0 +1,58 @@
+extends ../../../views/rootLayout
+
+include ../../../views/mixins/shelfs/printBooksShelf
+include ../../../views/mixins/shelfs/printChannelsShelf
+include ../../../views/mixins/shelfs/printCoursesShelf
+include ../../../views/mixins/shelfs/printFilesShelf
+include ../../../views/mixins/shelfs/printIdeasShelf
+include ../../../views/mixins/shelfs/printInfographicsShelf
+include ../../../views/mixins/shelfs/printMoviesShelf
+include ../../../views/mixins/shelfs/printProductsShelf
+include ../../../views/mixins/shelfs/printQuotesShelf
+include ../../../views/mixins/shelfs/printStoriesShelf
+include ../../../views/mixins/shelfs/printStoriesShelf
+include ../../../views/mixins/shelfs/printToolsShelf
+include ../../../views/mixins/shelfs/printVideosShelf
+
+block globalNav
+    include ../../../views/partials/globalNav
+
+block content
+    - books = content.books;
+    - channels = content.channels;
+    - courses = content.courses;
+    - files = content.files;
+    - ideas = content.ideas;
+    - infographics = content.infographics;
+    - movies = content.movies;
+    - products = content.products;
+    - quotes = content.quotes;
+    - stories = content.stories;
+    - tools = content.tools;
+    - videos = content.videos;
+
+    .div.article
+        .article_header.pt-3.pb-3
+            p= createdAt
+            h1= title
+            h2= subtitle
+            p= description
+            each menuItem in menu
+                a(href='#'+menuItem)= menuItem
+        .article_content
+            +printBooksShelf(books)
+            +printChannelsShelf(channels)
+            +printCoursesShelf(courses)
+            +printFilesShelf(files)
+            +printInfographicsShelf(infographics)
+            +printMoviesShelf(movies)
+            +printProductsShelf(products)
+            +printQuotesShelf(quotes)
+            +printStoriesShelf(stories)
+            +printToolsShelf(tools)
+            +printVideosShelf(videos)
+
+
+
+
+

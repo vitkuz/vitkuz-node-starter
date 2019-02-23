@@ -64,4 +64,9 @@ module.exports = [
     href: '/user/edit/product/1',
     enable: true,
   },
-]
+  {
+    text: 'Articles',
+    href: '/articles/1',
+    enable: true,
+  },
+];

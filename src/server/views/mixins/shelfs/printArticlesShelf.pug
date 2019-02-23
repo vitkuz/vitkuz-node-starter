@@ -1,0 +1,14 @@
+mixin printArticlesShelf(articles)
+    if articles && articles.length > 0
+        .shelf.articles-shelf
+            h3.articles-shelf__title 💡 Articles
+            hr
+            .articles-shelf__content
+                each article in articles
+                    .article-card(data-id=article._id, data-uuid=article.uuid)
+                        //img(src=article.cover)
+
+                        h4.article-card__title= article.title
+                        hr
+                        p.article-card__description= article.description
+                        hr
