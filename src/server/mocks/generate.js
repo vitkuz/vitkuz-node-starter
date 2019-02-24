@@ -1,5 +1,29 @@
 const faker = require('faker/locale/ru');
 
+function generate(type, number = 10) {
+  const Entity = entitiesFactory(type);
+  const entities = [];
+
+  for (let i = 0; i < number; i++) {
+    entities.push(new Entity());
+  }
+
+  return entities;
+}
+
+function Category() {
+  return {
+    _id: faker.random.uuid(),
+    uuid: faker.random.uuid(),
+
+    title: faker.lorem.word(),
+    title_en: faker.lorem.word(),
+
+    description: faker.lorem.paragraph(),
+    description_en: faker.lorem.paragraph(),
+  };
+}
+
 function Book() {
   return {
     _id: faker.random.uuid(),
@@ -16,6 +40,10 @@ function Book() {
 
     description: faker.lorem.paragraph(),
     description_en: faker.lorem.paragraph(),
+
+    categoriesRef: generate('categories', 2),
+
+    articlesRef: generate('articles', 3),
 
     authorRef: `${faker.name.firstName()} ${faker.name.lastName()}`,
     cover: faker.random.image(),
@@ -214,14 +242,20 @@ function Article() {
     title: faker.lorem.words(),
     title_en: faker.lorem.words(),
 
+    subtitle: faker.lorem.words(),
+    subtitle_en: faker.lorem.words(),
+
     description: faker.lorem.paragraph(),
     description_en: faker.lorem.paragraph(),
+
+    categories: generate('categories', 2),
   };
 }
 
-
 function entitiesFactory(type) {
   switch (type) {
+    case 'categories':
+      return Category;
     case 'articles':
       return Article;
     case 'books':
@@ -258,15 +292,6 @@ function entitiesFactory(type) {
   }
 }
 
-const generate = (type, number = 10) => {
-  const Entity = entitiesFactory(type);
-  const entities = [];
-
-  for (let i = 0; i < number; i++) {
-    entities.push(new Entity());
-  }
-
-  return entities;
-};
+// console.log(generate('categories', 10));
 
 module.exports = generate;

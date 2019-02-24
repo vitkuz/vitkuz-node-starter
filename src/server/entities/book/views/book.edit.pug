@@ -1,0 +1,86 @@
+extends ../../../views/rootLayout
+
+include ../../../views/mixins/shelfs/printBooksShelf
+
+block globalNav
+    include ../../../views/partials/globalNav
+
+block content
+    -var book = content.book[0];
+
+    -var bookId = book._id;
+    -var bookUuid = book.uuid;
+    -var bookTitle = book.title;
+    -var bookSubtitle = book.subtitle;
+    -var bookDescription = book.description;
+    -var bookCategoriesRef = book.categoriesRef;
+    -var bookAarticlesRef = book.articlesRef;
+    -var bookCategoriesRefStr = '';
+    -var bookArticlesRefStr = '';
+    -
+        for (var i=0; i < bookCategoriesRef.length; i++) {
+          if (i === bookCategoriesRef.length-1) {
+            bookCategoriesRefStr += bookCategoriesRef[i].title;
+          } else {
+            bookCategoriesRefStr += bookCategoriesRef[i].title+', ';
+          }
+        }
+    -
+        for (var i=0; i < bookAarticlesRef.length; i++) {
+            if (i === bookAarticlesRef.length - 1) {
+                bookArticlesRefStr += bookAarticlesRef[i].title;
+            } else {
+                bookArticlesRefStr += bookAarticlesRef[i].title+', ';
+            }
+        }
+
+    .container
+        .div.book
+            .book_header.pt-3.pb-3
+                .row
+                    .col-md-4.order-md-2.mb-4
+                        h4.d-flex.justify-content-between.align-items-center.mb-3
+                            span.text-muted Sidebar
+                            span.badge.badge-secondary.badge-pill 3
+                    .col-md-8.order-md-1
+                        h4.d-flex.justify-content-between.mb-3
+                            span Create book
+                            span.badge.badge-secondary.badge-pill show all
+                        form.needs-validation(novalidate='')
+                            .mb-3
+                                label(for='bookId') book Id
+                                input#bookId.form-control(type='text', placeholder='', value=bookId,
+                                required=false, disabled=true)
+                            .mb-3
+                                label(for='bookUuid') book Uuid
+                                input#bookUuid.form-control(type='text', placeholder='', value=bookUuid,
+                                required=false, disabled=true)
+                            .mb-3
+                                label(for='bookTitle') book title
+                                input#bookTitle.form-control(type='text', placeholder='', value=bookTitle,
+                                required=true)
+                                .invalid-feedback
+                                    | book title is required.
+                            .mb-3
+                                label(for='bookSubtitle') book subtitle
+                                input#bookSubtitle.form-control(type='text', placeholder='', value=bookSubtitle,
+                                required=false)
+                            .mb-3
+                                label(for='bookDescription') book description
+                                textarea#bookDescription.form-control
+                                    | #{bookDescription}
+                            .mb-3
+                                label(for='bookCategoriesRef') book categories
+                                input#bookCategoriesRef.form-control(type='text', placeholder='',
+                                value=bookCategoriesRefStr,
+                                required=true)
+                                .invalid-feedback
+                                    | book categories is required.
+                            .mb-3
+                                label(for='bookArticlesRef') Book articles references
+                                input#bookArticlesRef.form-control(type='text', placeholder='',
+                                value=bookArticlesRefStr,
+                                required=false)
+                            hr.mb-4
+                            button.btn.btn-primary.btn-lg.btn-block(type='submit') Create
+    div(data-book=JSON.stringify(book))

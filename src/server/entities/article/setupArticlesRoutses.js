@@ -36,6 +36,7 @@ const setupRoutes = (app) => {
   app.use('/articles/:articleId/products', articleProductsSingleRoute());
 
   app.use('/user/add/article', articleAddRoute());
+  app.use('/user/edit/article/:id', articleEditRoute());
 };
 
 module.exports = setupRoutes;

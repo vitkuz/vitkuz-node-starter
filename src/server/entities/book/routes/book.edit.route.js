@@ -1,15 +1,19 @@
 const express = require('express');
-const debug = require('debug')('app:books.edit.route');
+const debug = require('debug')('app:article.edit.route');
 
 const router = express.Router();
-const pageModel = {
-  title: 'Books page',
-};
+const builder = require('../builders/book.edit.page.builder');
 
 function createRouter() {
-  return router.get('/', (req, res) => {
-    debug(req);
-    res.render('edit/book.edit.pug', pageModel);
+  return router.get('/', async (req, res) => {
+    try {
+      const pageModel = await builder();
+      // debug(pageModel);
+      // debug(pageModel.content);
+      res.render('book.edit.pug', pageModel);
+    } catch (e) {
+      debug(e);
+    }
   });
 }
 

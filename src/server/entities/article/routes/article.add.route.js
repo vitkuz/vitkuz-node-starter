@@ -6,9 +6,14 @@ const builder = require('../builders/article.page.builder');
 
 function createRouter() {
   return router.get('/', async (req, res) => {
-    const pageModel = await builder();
-    // console.log(pageModel);
-    res.render('article.add.pug', pageModel);
+    try {
+      const pageModel = await builder();
+      // debug(pageModel);
+      // debug(pageModel.content);
+      res.render('article.add.pug', pageModel);
+    } catch (e) {
+      debug(e);
+    }
   });
 }
 

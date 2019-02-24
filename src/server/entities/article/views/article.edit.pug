@@ -1,0 +1,69 @@
+extends ../../../views/rootLayout
+
+include ../../../views/mixins/shelfs/printBooksShelf
+
+block globalNav
+    include ../../../views/partials/globalNav
+
+block content
+    -var article = content.article[0]
+
+    -var articleId = article._id
+    -var articleUuid = article.uuid
+    -var articleTitle = article.title
+    -var articleSubtitle = article.subtitle
+    -var articleDescription = article.description
+    -var articleCategories = article.categories
+    -var articleCategoriesStr = ''
+    -
+        for (var i=0; i < articleCategories.length; i++) {
+          if (i === articleCategories.length-1) {
+            articleCategoriesStr += articleCategories[i].title;
+          } else {
+            articleCategoriesStr += articleCategories[i].title+', ';
+          }
+        }
+
+    .container
+        .div.article
+            .article_header.pt-3.pb-3
+                .row
+                    .col-md-4.order-md-2.mb-4
+                        h4.d-flex.justify-content-between.align-items-center.mb-3
+                            span.text-muted Sidebar
+                            span.badge.badge-secondary.badge-pill 3
+                    .col-md-8.order-md-1
+                        h4.d-flex.justify-content-between.mb-3
+                            span Create article
+                            span.badge.badge-secondary.badge-pill show all
+                        form.needs-validation(novalidate='')
+                            .mb-3
+                                label(for='articleId') Article Id
+                                input#articleId.form-control(type='text', placeholder='', value=articleId,
+                                required=false, disabled=true)
+                            .mb-3
+                                label(for='articleUuid') Article Uuid
+                                input#articleUuid.form-control(type='text', placeholder='', value=articleUuid,
+                                required=false, disabled=true)
+                            .mb-3
+                                label(for='articleTitle') Article title
+                                input#articleTitle.form-control(type='text', placeholder='', value=articleTitle,
+                                required=true)
+                                .invalid-feedback
+                                    | Article title is required.
+                            .mb-3
+                                label(for='articleSubtitle') Article subtitle
+                                input#articleSubtitle.form-control(type='text', placeholder='', value=articleSubtitle,
+                                required=false)
+                            .mb-3
+                                label(for='articleDescription') Article description
+                                textarea#articleDescription.form-control
+                                    | #{articleDescription}
+                            .mb-3
+                                label(for='articleCategories') Article categories
+                                input#articleCategories.form-control(type='text', placeholder='', value=articleCategoriesStr,
+                                required=true)
+                                .invalid-feedback
+                                    | Article categories is required.
+                            hr.mb-4
+                            button.btn.btn-primary.btn-lg.btn-block(type='submit') Create

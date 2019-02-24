@@ -1,0 +1,58 @@
+extends ../../../views/rootLayout
+
+include ../../../views/mixins/shelfs/printBooksShelf
+
+block globalNav
+    include ../../../views/partials/globalNav
+
+block content
+    .container
+        .div.book
+            .book_header.pt-3.pb-3
+                .row
+                    .col-md-4.order-md-2.mb-4
+                        h4.d-flex.justify-content-between.align-items-center.mb-3
+                            span.text-muted Sidebar
+                            span.badge.badge-secondary.badge-pill 3
+                    .col-md-8.order-md-1
+                        h4.d-flex.justify-content-between.mb-3
+                            span Create book
+                            span.badge.badge-secondary.badge-pill show all
+                        form.needs-validation(novalidate='')
+                            .mb-3
+                                label(for='bookId') book Id
+                                input#bookId.form-control(type='text', placeholder='', value='123',
+                                required=false, disabled=true)
+                            .mb-3
+                                label(for='bookUuid') book Uuid
+                                input#bookUuid.form-control(type='text', placeholder='', value='123-123-123',
+                                required=false, disabled=true)
+                            .mb-3
+                                label(for='bookTitle') book title
+                                input#bookTitle.form-control(type='text', placeholder='', value='',
+                                required=true)
+                                .invalid-feedback
+                                    | book title is required.
+                            .mb-3
+                                label(for='bookSubtitle') book subtitle
+                                input#bookSubtitle.form-control(type='text', placeholder='', value='',
+                                required=false)
+                            .mb-3
+                                label(for='bookDescription') book description
+                                textarea#bookDescription.form-control(type='text', placeholder='', value='',
+                                required=false)
+                            .mb-3
+                                label(for='bookCategories') book categories
+                                input#bookCategories.form-control(type='text', placeholder='', value='',
+                                required=true)
+                                .invalid-feedback
+                                    | book categories is required.
+                            hr.mb-4
+                            button.btn.btn-primary.btn-lg.btn-block(type='submit') Create
+
+
+
+
+
+
+
